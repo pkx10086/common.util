@@ -6,7 +6,14 @@ package common.util;
 */
 public class ArraysUtil {
 
-	
+	/**
+	 * 功能描述：数组对象是否为空
+	 * @author pankx
+	 * @date 2016年5月19日 上午10:35:01
+	 * @param @param array
+	 * @param @return 
+	 * @return boolean
+	 */
 	public static boolean isEmpty(Object []array){
 		
 		if(array==null || array.length<=0){

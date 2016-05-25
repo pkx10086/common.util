@@ -2,12 +2,10 @@ package common_util;
 
 import java.io.IOException;
 
-import org.apache.http.HttpHost;
 import org.apache.http.HttpResponse;
 import org.apache.http.client.ClientProtocolException;
 import org.apache.http.client.HttpClient;
 import org.apache.http.client.methods.HttpGet;
-import org.apache.http.impl.client.DefaultHttpClient;
 import org.apache.http.impl.client.SystemDefaultHttpClient;
 
 /**
@@ -15,13 +13,15 @@ import org.apache.http.impl.client.SystemDefaultHttpClient;
 * @author pankx
 * @date 2016年5月11日 下午2:39:16
 */
+@SuppressWarnings("deprecation")
 public class HttpClientUtil {
 
 	public static String  sendGet(String url){
 	try {
 		
 	        // 创建一个默认的HttpClient
-	        HttpClient httpclient =new SystemDefaultHttpClient();
+	        @SuppressWarnings("resource")
+			HttpClient httpclient =new SystemDefaultHttpClient();
 	        // 创建一个GET请求
 	        HttpGet request =new HttpGet("http://localhost:59545/tfsPlatform-SpringMVC/login");
 	        System.out.println(request.getURI());

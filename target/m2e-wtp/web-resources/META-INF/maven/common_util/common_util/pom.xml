@@ -28,7 +28,10 @@
   
   	<properties>
   		 <httpClient_version>4.5.2</httpClient_version>
-  		 <junit-version>4.12</junit-version>
+  		 <commons-lang3_version>3.4</commons-lang3_version>
+  		 <quartz_version>2.2.3</quartz_version>
+  		 <!-- test -->
+  		 <junit_version>4.12</junit_version>
  	</properties>
   
   
@@ -39,9 +42,20 @@
 		<version>${httpClient_version}</version> <!-- 分模块开发，父项目中有，这个版本号就可以省略了-->
 	  </dependency>
 	  <dependency>
+		    <groupId>org.apache.commons</groupId>
+		    <artifactId>commons-lang3</artifactId>
+		    <version>${commons-lang3_version}</version>
+   		</dependency>
+   		<dependency>
+				<groupId>org.quartz-scheduler</groupId>
+	   			 <artifactId>quartz</artifactId>
+	    		 <version>${quartz_version}</version>
+    		</dependency>
+	  
+	  <dependency>
     	<groupId>junit</groupId>
    		 <artifactId>junit</artifactId>
-    	<version>${junit-version}</version>
+    	<version>${junit_version}</version>
     	<scope>test</scope>
 	 </dependency>
 	  
