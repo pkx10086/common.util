@@ -1,36 +1,32 @@
 package common.util;
 
+import java.io.File;
 import java.io.FileInputStream;
 import java.io.FileNotFoundException;
 import java.io.IOException;
 import java.io.InputStream;
-import java.io.InputStreamReader;
 import java.util.Properties;
 
-import org.apache.commons.lang3.ClassPathUtils;
-import org.junit.runner.Request;
-
 /**
-* ÀàËµÃ÷£º¶ÁÈ¡ºó×ºÎª.propertiesÎÄ¼þµÄ¹¤¾ßÀà
+* ï¿½ï¿½Ëµï¿½ï¿½ï¿½ï¿½ï¿½ï¿½È¡ï¿½ï¿½×ºÎª.propertiesï¿½Ä¼ï¿½ï¿½Ä¹ï¿½ï¿½ï¿½ï¿½ï¿½
 * @author pankx
-* @date 2016Äê5ÔÂ25ÈÕ ÏÂÎç2:51:05
+* @date 2016ï¿½ï¿½5ï¿½ï¿½25ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½2:51:05
 */
 public class PropertiesUtil {
-	static String path =System.getenv("user.dir")+"/";
+	private static InputStream inputStream  =null;
+	
 	static{
-		
-	}
+		try {
+			inputStream = new FileInputStream(new File("src/main/resources/config.properties"));
+		} catch (FileNotFoundException e) {
+			 e.printStackTrace();
+		}
 	
-	
-	public PropertiesUtil() {
-		// TODO Auto-generated constructor stub
 	}
 	
 	public static String readValueBykey(String key){
-		 InputStream inputStream;
 		 Properties props=new Properties();
 		try {
-			inputStream = new FileInputStream(path);
 			props.load(inputStream);
 			return props.getProperty(key);
 		} catch (IOException e) {
@@ -42,8 +38,8 @@ public class PropertiesUtil {
 	
 	public static void main(String args[]){
 		
-		System.out.println(System.getProperty("user.dir"));
-		System.out.println(PropertiesUtil.class.getClassLoader().getResourceAsStream("main/resources/config.properties"));//.getgetResourceAsStream("src/main/resources/config.properties"));
-		//System.out.println("[value]"+PropertiesUtil.readValueBykey("quarzt.schedule.time"));
+		//System.out.println(System.getProperty("user.dir"));
+		//System.out.println(PropertiesUtil.class.getClassLoader().getResourceAsStream("main/resources/config.properties"));//.getgetResourceAsStream("src/main/resources/config.properties"));
+		System.out.println("[value]"+PropertiesUtil.readValueBykey("quarzt.schedule.time"));
 	}
 }
