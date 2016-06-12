@@ -3,15 +3,11 @@ package common.quarzt;
 import org.quartz.impl.triggers.CronTriggerImpl;
 
 /**
-* ÀàËµÃ÷:µ÷¶È²ÎÊıÅäÖÃ£¨Ê²Ã´Ê±ºòÈ¥µ÷¶È£©
+* æè¿°è¯´æ˜ï¼š
 * @author pankx
-* @date 2016Äê5ÔÂ25ÈÕ ÏÂÎç2:45:02
+* @date 2016-06-04
 */
 public class LzStoneCronTrigger extends CronTriggerImpl {
-
-	/**   
-	* @Fields serialVersionUID : TODO(ÓÃÒ»¾ä»°ÃèÊöÕâ¸ö±äÁ¿±íÊ¾Ê²Ã´)    
-	*/
 	private static final long serialVersionUID = 1L;
 	
 	

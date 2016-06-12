@@ -6,20 +6,23 @@ import java.util.Date;
 import java.util.logging.Logger;
 
 import org.quartz.Job;
-import org.quartz.JobDetail;
 import org.quartz.JobExecutionContext;
 import org.quartz.JobExecutionException;
 
+import common.util.PropertiesUtil;
+
 
 /**
-* ÀàËµÃ÷£º¶¨Ê±ÈÎÎñ
-* @author pankx
-* @date 2016Äê5ÔÂ25ÈÕ ÉÏÎç11:27:20
-*/
+ * åŠŸèƒ½æè¿°ï¼š
+ * @author pankx
+ * @date 2016å¹´6æœˆ7æ—¥
+ */
 public class LzstoneTimeTask implements Job {
 	Logger logger = Logger.getLogger("LzstoneTimeTask");
 	@Override
 	public void execute(JobExecutionContext arg0) throws JobExecutionException {
+		PropertiesUtil p=PropertiesUtil.getProperties();
+		System.out.println(p.readValueBykey("quarzt.test.name"));
 		logger.info("date:"+new Date()+"execute method will do someThing");
 	}
 	
