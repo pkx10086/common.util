@@ -36,12 +36,11 @@ public class TestCollections {
 		@Override
 		public int compare(Person o1, Person o2) {
 		  if(o1.getId()>o2.getId()){
-			  return 1;
+			  return -1;
 		  }else if(o1.getId()==o2.getId()){
-			  
 			  return 0;
 		  }else{
-			  return -1;
+			  return 1;
 		  }
 		}
 	});
