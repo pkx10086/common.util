@@ -1,15 +1,15 @@
 package common.util;
 /**
-* ÀàËµÃ÷£ºÊı×é¹¤¾ßÀà
+* æ•°ç»„å¯¹è±¡å·¥å…·ç±»
 * @author pankx
-* @date 2016Äê5ÔÂ18ÈÕ ÉÏÎç10:13:37
+* @date 2016-06-06 13:37
 */
 public class ArraysUtil {
 
 	/**
-	 * ¹¦ÄÜÃèÊö£ºÊı×é¶ÔÏóÊÇ·ñÎª¿Õ
+	 * åˆ¤æ–­æ•°ç»„å¯¹æ˜¯å¦ä¸ºç©º
 	 * @author pankx
-	 * @date 2016Äê5ÔÂ19ÈÕ ÉÏÎç10:35:01
+	 * @date @date 2016-06-06 13:37
 	 * @param @param array
 	 * @param @return 
 	 * @return boolean
@@ -23,9 +23,9 @@ public class ArraysUtil {
 	}
 	
 	/**
-	 * ¹¦ÄÜÃèÊö£º¿ËÂ¡Êı×é
+	 * ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Â¡ï¿½ï¿½ï¿½ï¿½
 	 * @author pankx
-	 * @date 2016Äê5ÔÂ18ÈÕ ÉÏÎç10:17:32
+	 * @date 2016ï¿½ï¿½5ï¿½ï¿½18ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½10:17:32
 	 * @param @param obj
 	 * @param @return 
 	 * @return T[]

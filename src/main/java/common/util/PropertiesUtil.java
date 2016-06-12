@@ -44,13 +44,11 @@ public class PropertiesUtil {
 	
 	
 	public  String readValueBykey(String key){
-	  
 		Properties props=new Properties();
 		try {
 			props.load(inputStream);
 			return props.getProperty(key);
 		} catch (IOException e) {
-			
 			e.printStackTrace();
 		}
 		return null;
