@@ -9,7 +9,5 @@ import org.quartz.impl.triggers.CronTriggerImpl;
 */
 public class LzStoneCronTrigger extends CronTriggerImpl {
 	private static final long serialVersionUID = 1L;
-	
-	
 
 }
