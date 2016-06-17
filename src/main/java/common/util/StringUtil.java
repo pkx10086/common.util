@@ -1,19 +1,23 @@
 package common.util;
+
+import java.util.ArrayList;
+import java.util.List;
+
 /**
-* ÀàËµÃ÷£º×Ö·û´®¹¤¾ßÀà
+* å­—ç¬¦ä¸²å·¥å…·ç±»
 * @author pankx
-* @date 2016Äê5ÔÂ18ÈÕ ÉÏÎç10:03:01
+* @date 
 */
 public class StringUtil {
 	
-	/**
-	 * ¹¦ÄÜÃèÊö£º×Ö·û´®ÊÇ·ñÎª¿Õ
-	 * @author pankx
-	 * @date 2016Äê5ÔÂ19ÈÕ ÉÏÎç10:36:14
-	 * @param @param str
-	 * @param @return 
-	 * @return boolean
-	 */
+/**
+ * åŠŸèƒ½æè¿°ï¼šå­—ç¬¦ä¸²ä¸ºç©ºï¼Œä¸åŒ…å«ç©ºä¸²
+ * @author pankx
+ * @date 2016å¹´6æœˆ17æ—¥ ä¸‹åˆ1:39:28
+ * @param @param str
+ * @param @return 
+ * @return boolean
+ */
 	public static boolean isBlank(String str){
 		
 		if(str==null || str.length()<=0 ||str.trim().length()<=0){
@@ -22,6 +26,65 @@ public class StringUtil {
 		return false;
 	}
 	
+	/**
+	 * åŠŸèƒ½æè¿°ï¼šå­—ç¬¦ä¸²ä¸ä¸ºç©ºè¿”å›true
+	 * @author pankx
+	 * @date 2016å¹´6æœˆ17æ—¥ ä¸‹åˆ1:43:15
+	 * @param @param str
+	 * @param @return 
+	 * @return boolean
+	 */
+	public static boolean isNotBlank(String str){
+		return !isBlank(str);
+	}
+	/**
+	 * åŠŸèƒ½æè¿°ï¼šåˆ†éš”å­—ç¬¦ä¸²ä¸ºæ•°ç»„
+	 * @author pankx
+	 * @date 2016å¹´6æœˆ15æ—¥ ä¸‹åˆ6:08:09
+	 * @param @param str
+	 * @param @param division
+	 * @param @return 
+	 * @return String[]
+	 */
+	public static String[] split(String str,String division){
+
+		if(isBlank(str)){
+			return null;
+		}
+		
+		if(isBlank(division)){
+			return new String[]{str};
+		}
+		int index;
+		List<String> slist = new ArrayList<String>();
+		while((index=str.indexOf(division))!=-1){
+			   slist.add(str.substring(0,index));
+			   str=str.substring(index+division.length());
+		}
+		return  (String[])slist.toArray(new String[0]);
+	}
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
 	public static void main(String[] args) {
+		String str_="sss,sss,Uuuu";
+		String str[]=split(",sss,uuu,rrr,", ",");
+		for(int i=0;i<str.length;i++){
+			System.out.println(str[i]);
+			
+		}
 	}
 }
