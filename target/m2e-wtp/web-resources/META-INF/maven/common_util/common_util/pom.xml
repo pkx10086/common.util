@@ -30,6 +30,7 @@
   		 <httpClient_version>4.5.2</httpClient_version>
   		 <commons-lang3_version>3.4</commons-lang3_version>
   		 <quartz_version>2.2.3</quartz_version>
+  		 <codehaus_version>1.1.1</codehaus_version>
   		 <!-- test -->
   		 <junit_version>4.12</junit_version>
  	</properties>
@@ -51,7 +52,11 @@
 	   			 <artifactId>quartz</artifactId>
 	    		 <version>${quartz_version}</version>
     		</dependency>
-	  
+		<dependency>
+		    <groupId>org.codehaus.fabric3.api</groupId>
+		    <artifactId>commonj</artifactId>
+		    <version>${codehaus_version}</version>
+		</dependency>
 	  <dependency>
     	<groupId>junit</groupId>
    		 <artifactId>junit</artifactId>

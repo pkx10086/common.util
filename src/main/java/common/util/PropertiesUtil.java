@@ -60,7 +60,7 @@ public class PropertiesUtil {
 	public static void main(String args[]){
 		
 	
-//		System.out.println(Thread.currentThread().getContextClassLoader().getResource("").getFile()+"config.properties");
+    //System.out.println(Thread.currentThread().getContextClassLoader().getResource("").getFile()+"config.properties");
 	//	System.out.println(ClassLoader.getSystemResource(""));
 		//System.out.println(System.getProperty("user.dir"));
 		//System.out.println(PropertiesUtil.class.getClassLoader().getResourceAsStream("main/resources/config.properties"));//.getgetResourceAsStream("src/main/resources/config.properties"));

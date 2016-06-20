@@ -4,29 +4,43 @@ package common;
 * @author pankx
 * @date 2016年5月26日 下午6:46:31
 */
-public class Test {
-
+public class Test{
 	
-	public String testAdd(){
-		System.out.println("2222222");
-		_testAdd();
-		System.out.println("333333");
-		return "1";
+	 String msg = "";
+	public void testAdd_(){
+		System.out.println("************");
+	    	msg="222";
+	    	if(msg.equals("333")){
+	    		System.out.println("msg:"+msg);
+	    	}
+		System.out.println("*****************");
+		
 	}
 	
 	
 	public void _testAdd(){
 		
-		System.out.println("444444444444444");
-		boolean flag =true;
-		if(flag){
-			return;
-		}
-		System.out.println("55555555555555");
+		System.out.println("###################");
+		msg="333";
+		if(msg.equals("222")){
+    		System.out.println("msg3:"+msg);
+    	}
+		System.out.println("##################");
 	}
-	
+
 	public static void main(String[] args) {
-		Test test = new Test();
-		System.out.println(test.testAdd());
+		
+	
+		for(int i=0;i<1000;i++){
+			new Thread(new Runnable() {
+			   Test t = new Test();
+				@Override
+				public void run() {
+					t._testAdd();
+					t.testAdd_();
+				}
+			}).start();
+			
+		}
 	}
 }
