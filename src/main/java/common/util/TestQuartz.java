@@ -67,6 +67,7 @@ public class TestQuartz {
                scheduler.start();
        } catch (SchedulerException e) { 
                e.printStackTrace(); 
+           	throw new RuntimeException("系统异常,查看logger日志");
        } 
 //       try { 
 //               //�رյ����� 
