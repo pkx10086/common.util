@@ -38,7 +38,7 @@ public class StringUtil {
 		return !isBlank(str);
 	}
 	/**
-	 * 功能描述：分隔字符串为数组
+	 * 功能描述：分隔字符串为数组,division is null return str[0]=str
 	 * @author pankx
 	 * @date 2016年6月15日 下午6:08:09
 	 * @param @param str
@@ -51,7 +51,6 @@ public class StringUtil {
 		if(isBlank(str)){
 			return null;
 		}
-		
 		if(isBlank(division)){
 			return new String[]{str};
 		}
