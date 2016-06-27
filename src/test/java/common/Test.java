@@ -1,4 +1,9 @@
 package common;
+
+import java.math.BigDecimal;
+
+import org.apache.commons.lang3.StringUtils;
+
 /**
 * 类说明：
 * @author pankx
@@ -30,7 +35,7 @@ public class Test{
 
 	public static void main(String[] args) {
 		
-	
+	/*
 		for(int i=0;i<1000;i++){
 			new Thread(new Runnable() {
 			   Test t = new Test();
@@ -41,6 +46,25 @@ public class Test{
 				}
 			}).start();
 			
+		}*/
+		
+		
+		/*System.out.println(new BigDecimal(15).multiply(new BigDecimal(0.05)));
+		
+		int arra[] = new int[]{1,2,3,3,4,5,};
+		for(int i:arra){
+			System.out.println(arra[i]);
 		}
+		
+*/		
+	/*	String str="ww";
+		
+		String st[] = str.split(",");
+		
+		
+		if(StringUtils.isBlank(st[0])||StringUtils.isBlank(st[1])||StringUtils.isBlank(st[2])){
+			
+			System.out.println(st.toString());
+		}*/
 	}
 }
