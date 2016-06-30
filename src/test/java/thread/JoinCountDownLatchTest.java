@@ -15,8 +15,14 @@ CountDownLatch 允许一个或多个线程等待其他线程完成操作。
 
 import java.util.concurrent.CountDownLatch;
 import java.util.concurrent.CyclicBarrier;
+import java.util.concurrent.Exchanger;
 import java.util.concurrent.ExecutorService;
 import java.util.concurrent.Executors;
+import java.util.concurrent.Semaphore;
+import java.util.concurrent.TimeUnit;
+import java.util.concurrent.TimeoutException;
+
+import org.omg.Messaging.SyncScopeHelper;
 
 /**
 * 类说明：
@@ -29,7 +35,11 @@ public class JoinCountDownLatchTest {
 		//线程等待，集合所有线程后操作
 		//joinCountDownLatchTest.cyclicBarrierUse();
 		 //等待线程
-		joinCountDownLatchTest.countDownLatchUse();
+		//joinCountDownLatchTest.countDownLatchUse();
+		//两个线程交换数据
+		//joinCountDownLatchTest.exchangeData();
+		//线程控制流量
+		joinCountDownLatchTest.semaphore(30,5);
 	}
 	
 	/**
@@ -43,7 +53,7 @@ public class JoinCountDownLatchTest {
 	 */
 	public void countDownLatchUse(){
 		
-		 ExecutorService service = Executors.newCachedThreadPool();  
+		   ExecutorService service = Executors.newCachedThreadPool();  
 	        // 创建两个计数器，cdOrder的初始值为1，cdAnswer初始值为3  
 	        final CountDownLatch cdOrder = new CountDownLatch(1);  
 	        final CountDownLatch cdAnswer = new CountDownLatch(3);        
@@ -117,6 +127,159 @@ public class JoinCountDownLatchTest {
 	  System.out.println("==========["+i+"]=======");
 	  service.execute(runnable);
 	}
-		 service.shutdown();
+		service.shutdown();
 	}
+	
+	
+	/**Exchanger可以用于遗传算法，遗传算法里需要选出两个人作为交配对象，这时候会交换两人的数据，
+	 * 并使用交叉规则得出2个交配结果。Exchanger也可以用于校对工作。比如我们需要将纸制银流通过人
+	 * 工的方式录入成电子银行流水，为了避免错误，采用AB岗两人进行录入，录入到Excel之后，系统需要
+	 * 加载这两个Excel，并对这两个Excel数据进行校对，看看是否录入的一致。代码如下：
+	 * 功能描述：两个线程进行数据交换的Exchanger
+	 * @author pankx
+	 * @date 2016年6月27日 下午1:21:24
+	 * @param  
+	 * @return void
+	 */
+	public void exchangeData(){
+		
+        final Exchanger<String> ex = new Exchanger<String>();
+	    ExecutorService threadPool = Executors.newScheduledThreadPool(2);
+        //单个线程
+		new Thread(new Runnable() {
+			
+			@Override
+			public void run() {
+				String A="银行流水A";
+				try {
+					String B=ex.exchange(A,10000, TimeUnit.MILLISECONDS);
+					  System.out.println("["+Thread.currentThread().getName()+"]A和B数据是否一致：" + A.equals(B) + ",A录入的是："
+	                            + A + ",B录入是：" + B);
+				} catch (InterruptedException | TimeoutException e) {
+					e.printStackTrace();
+				}
+				
+			}
+		}).start();
+		
+		new Thread(new Runnable() {
+			@Override
+			public void run() {
+				String B ="银行流水B";// TODO Auto-generated method stub
+				try {
+					   String A=ex.exchange(B,10000, TimeUnit.MILLISECONDS);
+					   System.out.println("["+Thread.currentThread().getName()+"]A和B数据是否一致：" + A.equals(B) + ",A录入的是："
+                            + A + ",B录入是：" + B);
+				} catch (InterruptedException | TimeoutException e) {
+					e.printStackTrace();
+				}
+			}
+		}).start();
+		//线程池
+		threadPool.execute(new Runnable() {
+			@Override
+			public void run() {
+				String C ="银行流水C";// TODO Auto-generated method stub
+				try {
+					   String D=ex.exchange(C,10000, TimeUnit.MILLISECONDS);
+					   System.out.println("["+Thread.currentThread().getName()+"]C和D数据是否一致：" + C.equals(D) + ",C录入的是："
+                            + C + ",D录入是：" + D);
+				} catch (InterruptedException | TimeoutException e) {
+					e.printStackTrace();
+				}
+			}
+		});
+		
+		threadPool.execute(new Runnable() {
+			@Override
+			public void run() {
+				String D ="银行流水C";// TODO Auto-generated method stub
+				try {
+					   String C=ex.exchange(D,10000, TimeUnit.MILLISECONDS);
+					   System.out.println("["+Thread.currentThread().getName()+"]C和D数据是否一致：" +C.equals(D) + ",C录入的是："
+                            +C+ ",D录入是：" + D);
+				} catch (InterruptedException | TimeoutException e) {
+					e.printStackTrace();
+				}
+			}
+		});
+		
+		  //线程池 测试线程池的名字
+				threadPool.execute(new Runnable() {
+					@Override
+					public void run() {
+						String E ="银行流水E";// TODO Auto-generated method stub
+						try {
+							   String F=ex.exchange(E,10000, TimeUnit.MILLISECONDS);
+							   System.out.println("["+Thread.currentThread().getName()+"]E和F数据是否一致：" + E.equals(F) + ",E录入的是："
+		                            + E + ",F录入是：" + F);
+						} catch (InterruptedException | TimeoutException e) {
+							e.printStackTrace();
+						}
+					}
+				});
+				
+				threadPool.execute(new Runnable() {
+					@Override
+					public void run() {
+						String F ="银行流水F";// TODO Auto-generated method stub
+						try {
+							   String E=ex.exchange(F,10000, TimeUnit.MILLISECONDS);
+							   System.out.println("["+Thread.currentThread().getName()+"]E和F数据是否一致：" + E.equals(F) + ",E录入的是："
+			                            + E + ",F录入是：" + F);
+						} catch (InterruptedException | TimeoutException e) {
+							e.printStackTrace();
+						}
+					}
+				});
+	}
+	
+	/**
+	 * Semaphore可以用于做流量控制，特别公用资源有限的应用场景，比如数据库连接。
+	 * 假如有一个需求，要读取几万个文件的数据，因为都是IO密集型任务，我们可以启
+	 * 动几十个线程并发的读取，但是如果读到内存后，还需要存储到数据库中，而数据库
+	 * 的连接数只有10个，这时我们必须控制只有十个线程同时获取数据库连接保存数据，
+	 * 否则会报错无法获取数据库连接。这个时候，我们就可以使用Semaphore来做流控，
+	 * 代码如下：
+	 * 功能描述：控制并发线程数的Semaphore
+	 * @author pankx
+	 * @date 2016年6月27日 下午2:01:27
+	 * @param  
+	 * @return void
+	 * 
+	 * 在代码中，虽然有30个线程在执行，但是只允许10个并发的执行。
+	 * Semaphore的构造方法Semaphore(int permits) 接受一个整型的数字，
+	 * 表示可用的许可证数量。Semaphore(10)表示允许10个线程获取许可证，
+	 * 也就是最大并发数是10。Semaphore的用法也很简单，首先线程使用
+	 * Semaphore的acquire()获取一个许可证，使用完之后调用release()归还许可证。
+	 * 还可以用tryAcquire()方法尝试获取许可证。
+	 */
+	public void semaphore(int threadCount,int activeThreadCount){
+		//threadCount,线程数量
+		//activeThreadCount 控制线程执行数量 activeThreadCount<threadCount
+		 ExecutorService threadPool = Executors.newFixedThreadPool(threadCount);
+		 final Semaphore s = new Semaphore(activeThreadCount); //活动线程10个
+		 
+		 for(int i=0;i<threadCount;i++){
+			 
+			 threadPool.execute(new Runnable() {
+				
+				@Override
+				public void run() {
+					try {
+						s.acquire();
+						System.out.println("["+Thread.currentThread().getName()+"] 执行保存save操作[time]"+System.currentTimeMillis());
+						s.release(); //注释掉可以看到的确同步执行数量activeThreadCount个
+					} catch (InterruptedException e) {
+						e.printStackTrace();
+					}
+
+				}
+			});
+		 }
+		 threadPool.shutdown();
+	}
+	
+	
+	
 }
