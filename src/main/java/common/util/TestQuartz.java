@@ -60,7 +60,7 @@ public class TestQuartz {
        SchedulerFactory sf = new StdSchedulerFactory();
        Scheduler scheduler = null; 
        try { 
-               scheduler = sf.getScheduler(); 
+              scheduler = sf.getScheduler(); 
               Date date= scheduler.scheduleJob(jobDetailImpl, cronTrigger); 
               logger.info("date::"+date);
                //4����ִ���������رյȲ��� 

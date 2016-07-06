@@ -1,5 +1,6 @@
 package common;
 
+import java.io.StringWriter;
 import java.math.BigDecimal;
 
 import org.apache.commons.lang3.StringUtils;
@@ -37,36 +38,11 @@ public class Test{
 	}
 
 	public static void main(String[] args) {
-		int a=100;
-	int b=0;
-
-
-	try {
-		int c=a/b;
-	} catch (Exception e) {
-		
-		//e.printStackTrace();
-		System.out.println("1:"+e.toString());
-		System.out.println("2:"+e.getMessage());
-		StackTraceElement[] sts= e.getStackTrace();
-		StringBuilder stb= new StringBuilder();
-		for(int i=0;i<sts.length;i++){
-			stb.append(sts[i]);
-		}
-		System.out.println("5:"+stb.toString());
-		System.out.println("3:"+e.getStackTrace());
-		System.out.println("4:"+e.getLocalizedMessage());
-		System.out.println("=======================");
-		System.out.println("6:"+Exceptions.getStackTraceAsString(e));
-		System.out.println("7:"+Exceptions.unchecked(e));
-		System.out.println("8:"+Exceptions.isCausedBy(e,Exception.class));
-		String str="nememmemememme";
-		String str1="";
-		System.out.println(str.format("username:%s",str));
-		System.out.println(str1.copyValueOf(new char[]{'n','e','m','m'}));
-		System.out.println(str1);
-		
-		
+		StringWriter str = new  StringWriter();
+		str.write("xiaoming");
+		System.out.println(str.toString());
+		str.append(" 你好");
+		System.out.println(str.toString());
 	}
 		
 	/*
@@ -100,5 +76,4 @@ public class Test{
 			
 			System.out.println(st.toString());
 		}*/
-	}
 }

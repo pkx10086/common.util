@@ -9,9 +9,9 @@ import org.apache.commons.lang3.StringUtils;
 import org.apache.commons.lang3.time.DateUtils;
 
 /**
-* 类说明：日期工具�?
+* 类说明：日期工具类
 * @author pankx
-* @date 2016�?�?1�?上午11:14:41
+* @date 上午11:14:41
 */
 public class DateUtil extends DateUtils {
 
@@ -20,9 +20,9 @@ public class DateUtil extends DateUtils {
 
 	
 	/**
-	 * 功能描述：将字符串类型的日期转换为日期类�?
+	 * 功能描述：将字符串类型的日期转换为日期类�?
 	 * @author pankx
-	 * @date 2016�?�?1�?下午2:28:55
+	 * @date 
 	 * @param @param date
 	 * @param @param pattern
 	 * @param @return 
@@ -49,7 +49,7 @@ public class DateUtil extends DateUtils {
 	/**
 	 * 功能描述：将日期转换为字符串
 	 * @author pankx
-	 * @date 2016�?�?1�?上午11:18:32
+	 * @date 
 	 * @param @param date 
 	 * @return void
 	 */
@@ -69,9 +69,9 @@ public class DateUtil extends DateUtils {
 	}
 	
 	/**
-	 * 功能描述：将日期转换为字符串，默认是时分�?
+	 * 功能描述：将日期转换为字符串，默认是时分�?
 	 * @author pankx
-	 * @date 2016�?�?1�?上午11:18:32
+	 * @date 
 	 * @param @param date 
 	 * @return void
 	 */
@@ -82,7 +82,7 @@ public class DateUtil extends DateUtils {
 	/**
 	 * 功能描述：某个日期加上某些天返回字符串类型的日期
 	 * @author pankx
-	 * @date 2016�?�?1�?上午11:25:49
+	 * @date 
 	 * @param @param date
 	 * @param @param mount
 	 * @param @return 
@@ -100,9 +100,9 @@ public class DateUtil extends DateUtils {
 	}
 	
 	/**
-	 * 功能描述�?n个月后的第一天的起始时间,负数是前几个月月初的起始时间,0是当前月的开始日�?
+	 * 功能描述个月后的第一天的起始时间,负数是前几个月月初的起始时间,0是当前月的开始日
 	 * @author pankx
-	 * @date 2016�?�?1�?上午11:52:17
+	 * @date 
 	 * @param @param date
 	 * @param @param amount
 	 * @param @return 
@@ -129,9 +129,9 @@ public class DateUtil extends DateUtils {
 	}
 	
 	/*
-	 * 功能描述：下个月的月初开始日�?
+	 * 功能描述：下个月的月初开始日
 	 * @author pankx
-	 * @date 2016�?�?1�?下午2:18:26
+	 * @date
 	 * @param @return 
 	 * @return String
 	 */
@@ -140,9 +140,9 @@ public class DateUtil extends DateUtils {
 	}
 	
 	/**
-	 * 功能描述：上个月的月初起始日�?
+	 * 功能描述：上个月的月初起始日�?
 	 * @author pankx
-	 * @date 2016�?�?1�?下午2:19:37
+	 * @date 2016�?�?1�?下午2:19:37
 	 * @param @return 
 	 * @return String
 	 */

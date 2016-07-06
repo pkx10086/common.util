@@ -1,4 +1,4 @@
-package common.util;
+package common;
 import java.io.FileNotFoundException;
 import java.io.IOException;
 import java.io.InputStream;
@@ -40,6 +40,9 @@ import org.apache.http.params.CoreProtocolPNames;
 import org.apache.http.protocol.ExecutionContext;
 import org.apache.http.protocol.HttpContext;
 import org.apache.http.util.EntityUtils;
+
+import common.util.NetServiceException;
+import common.util.StringUtil;
 /**
 * Apache Httpclient 4.0 工具包装类
 *

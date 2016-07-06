@@ -17,7 +17,7 @@ import common.util.PropertiesUtil;
  * @author pankx
  * @date 2016年6月7日
  */
-public class LzstoneTimeTask implements Job {
+public class LzstoneTimeTask<T extends Job> implements Job {
 	Logger logger = Logger.getLogger("LzstoneTimeTask");
 	@Override
 	public void execute(JobExecutionContext arg0) throws JobExecutionException {
@@ -25,5 +25,5 @@ public class LzstoneTimeTask implements Job {
 		System.out.println(p.readValueBykey("quarzt.test.name"));
 		logger.info("date:"+new Date()+"execute method will do someThing");
 	}
-	
+
 }

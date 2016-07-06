@@ -8,6 +8,12 @@ import org.quartz.impl.triggers.CronTriggerImpl;
 * @date 2016-06-04
 */
 public class LzStoneCronTrigger extends CronTriggerImpl {
-	private static final long serialVersionUID = 1L;
 
+	/**   
+	* @Fields serialVersionUID : TODO(用一句话描述这个变量表示什么)    
+	*/
+	private static final long serialVersionUID = 1L;
+	
+	
+	
 }
