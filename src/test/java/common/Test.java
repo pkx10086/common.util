@@ -6,7 +6,9 @@ import java.math.BigDecimal;
 import org.apache.commons.lang3.StringUtils;
 
 import common.util.Exceptions;
+import common.util.IPUtil;
 import common.util.NetServiceException;
+import common.util.PathClassLoader;
 
 /**
 * 类说明：
@@ -38,7 +40,7 @@ public class Test{
 	}
 
 	public static void main(String[] args) {
-		StringWriter str = new  StringWriter();
+/*		StringWriter str = new  StringWriter();
 		str.write("xiaoming");
 		System.out.println(str.toString());
 		str.append(" 你好");
@@ -52,6 +54,7 @@ public class Test{
 		instance11.write("小红11");
 		instance11.write("小李11");
 		System.out.println(instance11.toString());
+		*/
 	}
 		
 	/*
