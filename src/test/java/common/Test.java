@@ -43,6 +43,15 @@ public class Test{
 		System.out.println(str.toString());
 		str.append(" 你好");
 		System.out.println(str.toString());
+		StringWriter instance = SingleFactoryTest.getInstance(str.getClass());
+		instance.write("小红");
+		instance.write("小李");
+		System.out.println(instance.toString());
+		StringWriter instance11 = SingleFactoryTest.getInstance(str.getClass());
+		
+		instance11.write("小红11");
+		instance11.write("小李11");
+		System.out.println(instance11.toString());
 	}
 		
 	/*

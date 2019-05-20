@@ -71,7 +71,7 @@ public class JsonUtils {
 	
 	
 	public static void main(String[] args) {
-		User user = new User();
+	/*	User user = new User();
 		user.setName("小明");
 		user.setAge(12);
 		JSONObject json = new JSONObject();
@@ -79,14 +79,14 @@ public class JsonUtils {
 		String str=json.toJSONString(user);
 		System.out.println(str);
 		User u = objToJson(str,user.getClass());
-		System.out.println(u.getName());
+		System.out.println(u.getName());*/
 		
 		
 	}
 }
 
-class User {
-	
+/*class User {
+	private String id;
 	private String name;
 	private int age;
 	public String getName() {
@@ -106,4 +106,4 @@ class User {
 		return "User [name=" + name + ", age=" + age + "]";
 	}
 	
-}
+}*/

@@ -23,9 +23,7 @@ public class ArraysUtil {
 	}
 	
 	/**
-	 * ������������¡����
 	 * @author pankx
-	 * @date 2016��5��18�� ����10:17:32
 	 * @param @param obj
 	 * @param @return 
 	 * @return T[]
