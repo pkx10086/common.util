@@ -33,7 +33,7 @@
   		 <codehaus_version>1.1.1</codehaus_version>
   		 <fastJson_verion>1.2.13</fastJson_verion>
   		 <!-- test -->
-  		 <junit_version>4.12</junit_version>
+  		 <junit_version>4.13.1</junit_version>
  	</properties>
   
   
