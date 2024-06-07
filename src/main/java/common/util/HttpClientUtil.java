@@ -33,9 +33,8 @@ public class HttpClientUtil {
     public static final String CHARSET = "UTF-8";
 
     static {
-    	HttpHost host = new HttpHost("proxy.asiainfo.com",8080); //代理主机 否则找不到
+    	HttpHost host = new HttpHost("proxy.com",8080); //代理主机 否则找不到
         RequestConfig config = RequestConfig.custom().setProxy(host).setConnectTimeout(60000).setSocketTimeout(15000).build();
-        //httpclient.getHostConfiguration().setProxy("proxy.asiainfo.com",8080);
         httpClient = HttpClientBuilder.create().setDefaultRequestConfig(config).build();
     }
 
